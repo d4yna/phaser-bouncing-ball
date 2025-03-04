@@ -26,6 +26,16 @@ function preload() {
 function create() {
     ball = this.add.sprite(WIDTH / 2, HEIGHT / 2, "ball"); // x, y, and the ball "key"
     ball.setDisplaySize(ballSize, ballSize); // width, height
+
+ball.setInteractive();
+ball.on('pointerdown', function () {
+    // Reduce size by 10%
+    ballSize *= 0.9;
+    ball.setDisplaySize(ballSize, ballSize);
+
+    yspeed *= 1.1;
+        xspeed *= 1.1;
+    });
 }
 
 function update() {
